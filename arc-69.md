@@ -86,13 +86,84 @@ However, contrary to the Asset URL, it does not need to link to the digital medi
 
 
 
-#### MIME Type Files
+#### MIME Type
 
 Compared to ERC-1155, the JSON Metadata schema allows to indicate the MIME type of the files pointed by the `au` URI field.
 This is to allow clients to display appropriately the resource without having to first query it to find out the MIME type.
 
 It is **REQUIRED** to specify the `mimetype` field if the file is not an image. #suggested ?
 
+#### Algorand Asset Alliance (AAA) Extended Attribute Schema:
+
+The following Metadata Schema reflects extended attributes common to the needs of the Algorand Asset Alliance for NFT marketplaces. These additional fields are **OPTIONAL** but if included **MUST** follow the format below.
+
+
+```json
+{
+    "title": "Extended Digital Asset Properties",
+    "type": "object",
+    "properties": {
+        "creator": {
+            "title": "Person, Group or Organization",
+            "description": "The entity"
+        },
+        "royalty": {
+            "type": "number",
+            "description": "This value indicates the percentage of sales of this asset which are suggested by the creator. Value should be set with up to two decimals in precision."
+        },
+        "contributors": {
+            "type": "array",
+            "items": {
+                "title": "Person, Group, or Organization"
+            },
+            "description": "List of all credited creators who are to be awarded credit for this work."
+        },
+        "keywords": {
+            "type": "array",
+            "description": "Array of string keywords or categories describing this asset."
+        },
+        "offers": {
+            "type": "string",
+            "description": "This field describes offers or other benefits conferred by the ownership of this asset."
+        },
+        "publisher": {
+            "type": "string",
+            "description": "The name of the company or site used to originate the minted asset."
+        },
+        "itemListElement": {
+            "type": "integer",
+            "description": "The number of this item within the set of a predetermined asset collection or series.",
+            "default": 1
+        },
+        "numberOfItems": {
+            "type": "integer",
+            "description": "The total number of items in the set or series.",
+            "default": 1
+        },
+        "maintainer": {
+            "title": "Person, Group or Organization",
+            "description": "A maintainer of a Dataset, software package (SoftwareApplication), or other Project. A maintainer is a Person or Organization that manages the artifact"
+        },
+        "license": {
+            "type": "string",
+            "description": "A license document that applies to this content, typically indicated by URL."
+        },
+        "copyrightHolder": {
+            "type": "string",
+            "description": "The party holding the legal copyright to the CreativeWork."
+        },
+        "copyrightNotice": {
+            "type": "string",
+            "description": "Text of a notice appropriate for describing the copyright aspects of this Creative Work, ideally indicating the owner of the copyright for the Work."
+        },
+        "copyrightYear": {
+            "type": "string",
+            "description": "The year during which the claimed copyright for the CreativeWork was first asserted."
+        }  
+    }
+}
+
+```
 
 
 #### Examples
