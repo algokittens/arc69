@@ -28,7 +28,6 @@ The ASA parameters should follow the following conventions:
 * *Unit Name* (`un`): no restriction 
 * *Asset Name* (`an`): no restriction
 * *Asset URL* (`au`): a URI pointing to digital media file. This URI:
-    * **SHOULD** contain the media type. #must?
     * **SHOULD** be persistent.
     * **SHOULD** link to a medium resolution media file (?)
     * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character
@@ -52,14 +51,9 @@ There are no requirements regarding the manager account of the ASA, or its the r
 > * Support for mimetype fields for any file pointed by the URI field. (need to rephrase this)
 > * Adding the fields `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
 > * Adding the field `info_type` to signal inclusion into rarity metrics (better wording and better field needed)
+> * Adding the field `append` to signal replacement of appending of metadata. If excluded assumed to be False.
+> * Adding the field `mime_type` to signal mime type of the media included in `au`. **MUST** be included if the mime type != image. 
 
-
-
-> I have no idea about this:
-
-Similarly to ERC-1155, the URI does support ID substitution. If the URI contains `{id}`, clients **MUST** substitute it by the asset ID in *decimal*.
-
-> Contrary to ERC-1155, the ID is represented in decimal (instead of hexadecimal) to match what current APIs and block explorers use on the Algorand blockchain.
 
 
 The JSON Metadata schema is as follows:
@@ -87,26 +81,17 @@ The JSON Metadata schema is as follows:
 
 All the fields are **OPTIONAL**. But if provided, they **MUST** match the description in the JSON schema.
 
-URI fields (`image`, `external_url`, `animation_url`, and `localization.uri`) in the JSON Metadata file are defined similarly as the Asset URL parameter `au`.
-However, contrary to the Asset URL, they **MAY** be relative (to the Asset URL).
-See Asset URL above.
+The URI field (`external_url`) in the JSON Metadata file is defined similarly as the Asset URL parameter `au`.
+However, contrary to the Asset URL, it does not need to link to the digital media file.
 
 
-
-> need to change this:
 
 #### MIME Type Files
 
-Compared to ERC-1155, the JSON Metadata schema allows to indicate the MIME type of the files pointed by any URI field.
+Compared to ERC-1155, the JSON Metadata schema allows to indicate the MIME type of the files pointed by the `au` URI field.
 This is to allow clients to display appropriately the resource without having to first query it to find out the MIME type.
-Concretly, every URI field `xxx` is allowed to have an optional associated field  `xxx_integrity` that specifies the digest of the file pointed by the URI.
 
-> If MIME types are not properly specified, clients may need to rely on brittle methods to guess the MIME types such as using file extensions.
-
-It is **RECOMMENDED** to specify all the `xxx_mimetype` fields of all the `xxx` URI fields, except for `external_url_mimetype` when it points to a website.
-
-Any field with a name ending with `_mimetype` **MUST** match a corresponding field containing a URI to a file with a matching digest.
-For example, if the field `hello_mimetype` is specified, the field `hello` **MUST** exist and **MUST** be a URI pointing to a file with a digest equal to the digest specified by `hello_mimetype`.
+It is **REQUIRED** to specify the `mimetype` field if the file is not an image. #suggested ?
 
 
 
@@ -128,7 +113,7 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
         },
         {"trait_type":"Overall",
         "value":"Good stuff"
-        },
+        }
     }
     ]
 }
@@ -138,13 +123,47 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
 An example of possible ASA parameters would be:
 
 * *Asset Unit*: `ARC69 theme song` for example
-* *Asset Name*: `` or `arc3`
-* *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT#s`
+* *Asset Name*: `69TS`
+* *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT`
 * *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file
 * *Total Number of Units*: 100
-* *Number of Digits after the Decimal Point*: 2
+* *Number of Digits after the Decimal Point*: 0
 
 The above parameters define a fractional NFT with 100 shares.
+
+
+##### Appending Example
+
+Example using two asset configuration transaction notes to extend metadata beyond 1kb.
+
+
+Most recent asset config transaction:
+
+```json
+{   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique magna sit amet purus. Gravida dictum fusce ut placerat. Augue lacus viverra vitae congue. Neque volutpat ac tincidunt vitae semper quis. Aenean et tortor at risus viverra adipiscing at. Sed enim ut sem viverra aliquet eget sit amet. Tortor posuere ac ut consequat semper viverra. Enim facilisis gravida neque convallis a cras semper auctor neque. Lobortis feugiat vivamus at augue eget. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
+
+Vulputate enim nulla aliquet porttitor. Porta nibh venenatis cras sed. Cras semper auctor neque vitae. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Amet tellus cras adipiscing enim.",
+    "append": "True"
+}
+```
+Previous asset config transaction:
+
+```json
+{   "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "attributes": [
+        {"trait_type":"Base",
+        "value":"Groovy"
+        },
+        {"trait_type":"Vibes",
+        "value":"Funky"
+        },
+        {"trait_type":"Overall",
+        "value":"Good stuff"
+        }
+    ]
+}
+```
+
 
 
 > still need to write this:
