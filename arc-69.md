@@ -114,7 +114,6 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
         {"trait_type":"Overall",
         "value":"Good stuff"
         }
-    }
     ]
 }
 ```
@@ -140,9 +139,20 @@ Example using two asset configuration transaction notes to extend metadata beyon
 Most recent asset config transaction:
 
 ```json
-{   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget aliquet nibh praesent tristique magna sit amet purus. Gravida dictum fusce ut placerat. Augue lacus viverra vitae congue. Neque volutpat ac tincidunt vitae semper quis. Aenean et tortor at risus viverra adipiscing at. Sed enim ut sem viverra aliquet eget sit amet. Tortor posuere ac ut consequat semper viverra. Enim facilisis gravida neque convallis a cras semper auctor neque. Lobortis feugiat vivamus at augue eget. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
+{   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Eget aliquet nibh praesent tristique magna sit amet purus. 
+Gravida dictum fusce ut placerat. Augue lacus viverra vitae congue. 
+Neque volutpat ac tincidunt vitae semper quis. Aenean et tortor at risus
+viverra adipiscing at. Sed enim ut sem viverra aliquet eget sit amet. 
+Tortor posuere ac ut consequat semper viverra. Enim facilisis gravida neque 
+convallis a cras semper auctor neque. Lobortis feugiat vivamus at augue eget. 
+Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. 
+Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
 
-Vulputate enim nulla aliquet porttitor. Porta nibh venenatis cras sed. Cras semper auctor neque vitae. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi. Amet tellus cras adipiscing enim.",
+Vulputate enim nulla aliquet porttitor. Porta nibh venenatis cras sed. 
+Cras semper auctor neque vitae. Nunc faucibus a pellentesque sit amet 
+porttitor eget dolor morbi. Amet tellus cras adipiscing enim.",
     "append": "True"
 }
 ```
