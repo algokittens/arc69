@@ -31,7 +31,7 @@ The ASA parameters should follow the following conventions:
     * **SHOULD** be persistent.
     * **SHOULD** link to a medium resolution media file (define size ?)
     * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character
-    * **SHOULD** specify a rendering strategy of `#h` for HTML/interactive NFTs, `#v` for videos, or `#i` for images, at the end of the URL with a fragment identifier (Ex: `#h`). If the URL doesn't contain a rendering strategy, you can assume the URL points to an image. Note: RFC-3986 refers to this as having a "view on representations of the primary resource"
+    * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, or `#h` for HTML/interactive digital media.  If unspecified, defaults to `#i`.
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
         * When the file is stored on IPFS, the `ipfs://...` URI **SHOULD** be used. IPFS Gateway URI (such as `https://ipfs.io/ipfs/...`) **SHOULD NOT** be used.
     * **SHOULD NOT** use the following URI scheme: *http* (due to security concerns).
