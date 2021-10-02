@@ -43,7 +43,7 @@ The ASA parameters should follow the following conventions:
     * **SHOULD** be empty
 
 
-There are no requirements regarding the manager account of the ASA, or its the reserve account.
+There are no requirements regarding the manager account of the ASA, or the reserve account.
 
 ### JSON Metadata File Schema
 
@@ -91,7 +91,7 @@ However, contrary to the Asset URL, it does not need to link to the digital medi
 Compared to ERC-1155, the JSON Metadata schema allows to indicate the MIME type of the files pointed by the `au` URI field.
 This is to allow clients to display appropriately the resource without having to first query it to find out the MIME type.
 
-It is **REQUIRED** to specify the `mimetype` field if the file is not an image. #suggested ?
+It is **REQUIRED** to specify the `mimetype` field if the file is **NOT** an image. #suggested ?
 
 #### Algorand Asset Alliance (AAA) Extended Attribute Schema:
 
