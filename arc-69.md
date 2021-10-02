@@ -29,7 +29,7 @@ The ASA parameters should follow the following conventions:
 * *Asset Name* (`an`): no restriction
 * *Asset URL* (`au`): a URI pointing to digital media file. This URI:
     * **SHOULD** be persistent.
-    * **SHOULD** link to a medium resolution media file (?)
+    * **SHOULD** link to a medium resolution media file (define size ?)
     * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
         * When the file is stored on IPFS, the `ipfs://...` URI **SHOULD** be used. IPFS Gateway URI (such as `https://ipfs.io/ipfs/...`) **SHOULD NOT** be used.
@@ -51,8 +51,9 @@ There are no requirements regarding the manager account of the ASA, or the reser
 > * Support for mimetype fields for any file pointed by the URI field. (need to rephrase this)
 > * Adding the fields `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
 > * Adding the field `info_type` to signal inclusion into rarity metrics (better wording and better field needed)
-> * Adding the field `append` to signal replacement of appending of metadata. If excluded assumed to be False.
+> * Adding the field `append` to signal replacement or appending of metadata. If excluded assumed to be False.
 > * Adding the field `mime_type` to signal mime type of the media included in `au`. **MUST** be included if the mime type != image. 
+> * Adding the field `media_url` which is used to link the high resolution media file. **OPTIONAL** but the sha-256 digest of the file **MUST** match the Asset Metadata Hash (`am`). 
 
 
 
@@ -70,6 +71,14 @@ The JSON Metadata schema is as follows:
         "external_url": {
             "type": "string",
             "description": "A URI pointing to an external website presenting the asset."
+        },
+        "append": {
+            "type": "boolean",
+            "description": "A flag signaling appending replacement of appending of metadata"
+        },
+        "media_url": {
+            "type": "string",
+            "description": "A URI pointing the high resolution media file of the asset."
         },
         "atributes": {
             "type": "object",
