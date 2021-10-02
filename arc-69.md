@@ -81,7 +81,7 @@ The JSON Metadata schema is as follows:
             "type": "string",
             "description": "A URI pointing the high resolution media file of the asset."
         },
-        "atributes": {
+        "attributes": {
             "type": "object",
             "description": "Arbitrary attributes (also called properties). Values may be strings, numbers, object or arrays." (?)
         }
