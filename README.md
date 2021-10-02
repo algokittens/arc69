@@ -35,7 +35,7 @@ The ASA parameters should follow the following conventions:
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
         * When the file is stored on IPFS, the `ipfs://...` URI **SHOULD** be used. IPFS Gateway URI (such as `https://ipfs.io/ipfs/...`) **SHOULD NOT** be used.
     * **SHOULD NOT** use the following URI scheme: *http* (due to security concerns).
-* *Asset Metadata Hash* (`am`): the SHA-256 digest of the high resolution digital media file as a 32-byte string (as defined in [NIST FIPS 180-4](https://doi.org/10.6028/NIST.FIPS.180-4))
+* *Asset Metadata Hash* (`am`): the SHA-256 digest of the full resolution media file as a 32-byte string (as defined in [NIST FIPS 180-4](https://doi.org/10.6028/NIST.FIPS.180-4))
     * **OPTIONAL**
 * *Unit Name* (`un`): no restriction 
 * *Freeze Address* (`f`): 
