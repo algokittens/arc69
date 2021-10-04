@@ -49,7 +49,7 @@ There are no requirements regarding the manager account of the ASA, or the reser
 ### JSON Metadata File Schema
 
 > The JSON Medata File schema follow the Ethereum Request for Comments 721 [ERC-721 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) with the following main differences:
-> * Adding the field `standard` to signal which standard is use.
+> * Adding the field `standard` to signal which standard is used.
 > * Adding the field `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
 > * Adding the field `mime_type` to signal the MIME type and subtype of the media included in `au`. **OPTIONAL**
 > * Adding the field `media_url` which is used to link the high resolution media file. **OPTIONAL** but the sha-256 digest of the file **MUST** match the Asset Metadata Hash (`am`).
