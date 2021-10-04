@@ -31,7 +31,7 @@ The ASA parameters should follow the following conventions:
     * **SHOULD** be persistent.
     * **SHOULD** link to a file small enough to fetch quickly in a gallery view.
     * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character.
-    * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, or `#h` for HTML/interactive digital media.  If unspecified, defaults to `#i`.
+    * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, `#a` for audio, or `#h` for HTML/interactive digital media.  If unspecified, defaults to `#i`.
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
         * When the file is stored on IPFS, the `ipfs://...` URI **SHOULD** be used. IPFS Gateway URI (such as `https://ipfs.io/ipfs/...`) **SHOULD NOT** be used.
     * **SHOULD NOT** use the following URI scheme: *http* (due to security concerns).
@@ -83,15 +83,15 @@ The JSON Metadata schema is as follows:
             "description": "A URI pointing the high resolution media file of the asset."
         },
         "attributes": {
-            "type": "object",
-            "description": "Arbitrary attributes (also called properties). Values may be strings, numbers, object or arrays."
+            "type": "array",
+            "description": "Attributes following Open Sea's attributes format (https://docs.opensea.io/docs/metadata-standards#attributes)."
         }
     }
 }
 ```
 The `standard` field is **REQUIRED**, all the other fields are **OPTIONAL**. But if provided, they **MUST** match the description in the JSON schema.
 
-The URI field (`external_url`) in the JSON Metadata file is defined similarly as the Asset URL parameter `au`.
+The URI field (`external_url`) is defined similarly as the Asset URL parameter `au`.
 However, contrary to the Asset URL, it does not need to link to the digital media file.
 
 
@@ -116,7 +116,7 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
     "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "mime_type":"video/mp4",
     "attributes": [
-        {"trait_type":"Base",
+        {"trait_type":"Bass",
         "value":"Groovy"
         },
         {"trait_type":"Vibes",
@@ -144,12 +144,12 @@ These conventions are heavily based on Ethereum Improvement Proposal [ERC-1155 M
 
 The main differences are highlighted below:
 
-* Asset Name and Asset Unit are specified in the ASA parameters. This is to allow wallets that are not aware of ARC-69 or that are not able to retrieve the JSON file to still display meaningful information.
+* Asset Name, Unit Name, and URL are specified in the ASA parameters. This allows applications to efficienty display meaningful information, even if they aren't aware of ARC-69 metadata.
 * MIME type fields are added to help clients know how to display the files pointed by URI.
 * All asset metadata is stored onchain.
 * Metadata can be either mutable or immutable.
 
-Valid JSON Metadata files for ERC-1155 are valid JSON Metadata files for ARC-69.
+Valid JSON Metadata for ERC-1155 is valid JSON Metadata for ARC-69.
 
 ## Copyright
 
