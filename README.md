@@ -84,7 +84,7 @@ The JSON Metadata schema is as follows:
         },
         "attributes": {
             "type": "object",
-            "description": "Arbitrary attributes (also called properties). Values may be strings, numbers, object or arrays." (?)
+            "description": "Arbitrary attributes (also called properties). Values may be strings, numbers, object or arrays."
         }
     }
 }
