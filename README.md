@@ -50,7 +50,8 @@ There are no requirements regarding the manager account of the ASA, or the reser
 
 > The JSON Medata File schema follow the Ethereum Request for Comments 721 [ERC-721 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) with the following main differences:
 > * Support for mimetype fields for any file pointed by the URI field. (need to rephrase this)
-> * Adding the fields `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
+> * Adding the field `standard` to signal which standard is use.
+> * Adding the field `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
 > * Adding the field `info_type` to signal inclusion into rarity metrics (better wording and better field needed)
 > * Adding the field `append` to signal replacement or appending of metadata. If excluded assumed to be False.
 > * Adding the field `mime_type` to signal mime type of the media included in `au`. **MUST** be included if the mime type != image. 
@@ -65,6 +66,10 @@ The JSON Metadata schema is as follows:
     "title": "Token Metadata",
     "type": "object",
     "properties": {
+        "standard": {
+            "type": "string",
+            "description": "Describes the standard used, in this case arc69"
+        },
         "description": {
             "type": "string",
             "description": "Describes the asset to which this token represents"
@@ -88,8 +93,7 @@ The JSON Metadata schema is as follows:
     }
 }
 ```
-
-All the fields are **OPTIONAL**. But if provided, they **MUST** match the description in the JSON schema.
+The `standard` field is **REQUIRED**, all the other fields are **OPTIONAL**. But if provided, they **MUST** match the description in the JSON schema.
 
 The URI field (`external_url`) in the JSON Metadata file is defined similarly as the Asset URL parameter `au`.
 However, contrary to the Asset URL, it does not need to link to the digital media file.
@@ -183,7 +187,10 @@ The following Metadata Schema reflects extended attributes common to the needs o
 An example of an ARC-3 JSON Metadata file for a song follows. The properties array proposes some **SUGGESTED** formatting for token-specific display properties and metadata.
 
 ```json
-{   "description": "arc69 theme song",
+
+{   
+    "standard": "arc69",
+    "description": "arc69 theme song",
     "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "attributes": [
         {"trait_type":"Base",
@@ -203,7 +210,7 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
 An example of possible ASA parameters would be:
 
 * *Asset Unit*: `ARC69 theme song` for example
-* *Asset Name*: `69TS`
+* *Asset Name*: `69TS` for example
 * *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT`
 * *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file
 * *Total Number of Units*: 100
@@ -220,27 +227,31 @@ Example using two asset configuration transaction notes to extend metadata beyon
 Most recent asset config transaction:
 
 ```json
-{   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Eget aliquet nibh praesent tristique magna sit amet purus. 
-Gravida dictum fusce ut placerat. Augue lacus viverra vitae congue. 
-Neque volutpat ac tincidunt vitae semper quis. Aenean et tortor at risus
-viverra adipiscing at. Sed enim ut sem viverra aliquet eget sit amet. 
-Tortor posuere ac ut consequat semper viverra. Enim facilisis gravida neque 
-convallis a cras semper auctor neque. Lobortis feugiat vivamus at augue eget. 
-Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. 
-Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
+{   
+   "standard": "arc69",
+   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Eget aliquet nibh praesent tristique magna sit amet purus. 
+      Gravida dictum fusce ut placerat. Augue lacus viverra vitae congue. 
+      Neque volutpat ac tincidunt vitae semper quis. Aenean et tortor at risus
+      viverra adipiscing at. Sed enim ut sem viverra aliquet eget sit amet. 
+      Tortor posuere ac ut consequat semper viverra. Enim facilisis gravida neque 
+      convallis a cras semper auctor neque. Lobortis feugiat vivamus at augue eget. 
+      Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. 
+      Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.
 
-Vulputate enim nulla aliquet porttitor. Porta nibh venenatis cras sed. 
-Cras semper auctor neque vitae. Nunc faucibus a pellentesque sit amet 
-porttitor eget dolor morbi. Amet tellus cras adipiscing enim.",
+      Vulputate enim nulla aliquet porttitor. Porta nibh venenatis cras sed. 
+      Cras semper auctor neque vitae. Nunc faucibus a pellentesque sit amet 
+      porttitor eget dolor morbi. Amet tellus cras adipiscing enim.",
     "append": "True"
 }
 ```
 Previous asset config transaction:
 
 ```json
-{   "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+{   
+    "standard": "arc69",
+    "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "attributes": [
         {"trait_type":"Base",
         "value":"Groovy"
@@ -257,8 +268,6 @@ Previous asset config transaction:
 
 
 
-> still need to write this:
-
 ## Rationale
 
 These conventions are heavily based on Ethereum Improvement Proposal [ERC-1155 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) to facilitate interoperobility. 
@@ -267,15 +276,10 @@ The main differences are highlighted below:
 
 * Asset Name and Asset Unit can be optionally specified in the ASA parameters. This is to allow wallets that are not aware of ARC-3 or that are not able to retrieve the JSON file to still display meaningful information.
 * MIME type fields are added to help clients know how to display the files pointed by URI.
+* All asset metadata is stored onchain.
 
 
-Valid JSON Metadata files for ERC-1155 are valid JSON Metadata files for ARC-3.
-
-Valid JSON Metadata files for ERC-1155 are valid JSON Metadata files for ARC-69(?).
-
-
-
-However, it is highly recommended that users always include the additional RECOMMENDED fields, such as the integrity fields.
+Valid JSON Metadata files for ERC-1155 are valid JSON Metadata files for ARC-69.
 
 
 ## Copyright
