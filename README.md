@@ -147,7 +147,7 @@ These conventions are heavily based on Ethereum Improvement Proposal [ERC-1155 M
 
 The main differences are highlighted below:
 
-* Asset Name and Asset Unit are specified in the ASA parameters. This is to allow wallets that are not aware of ARC-3 or that are not able to retrieve the JSON file to still display meaningful information.
+* Asset Name and Asset Unit are specified in the ASA parameters. This is to allow wallets that are not aware of ARC-69 or that are not able to retrieve the JSON file to still display meaningful information.
 * MIME type fields are added to help clients know how to display the files pointed by URI.
 * All asset metadata is stored onchain.
 * Metadata can be either mutable or immutable.
