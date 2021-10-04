@@ -25,19 +25,19 @@ An ARC-69 ASA has an associated JSON Metadata file, formatted as specified below
 
 The ASA parameters should follow the following conventions:
 
-* *Unit Name* (`un`): no restriction 
-* *Asset Name* (`an`): no restriction
+* *Unit Name* (`un`): no restriction. 
+* *Asset Name* (`an`): no restriction.
 * *Asset URL* (`au`): a URI pointing to digital media file. This URI:
     * **SHOULD** be persistent.
-    * **SHOULD** link to a medium resolution media file (define size ?)
-    * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character
+    * **SHOULD** SHOULD link to a file small enough to fetch quickly in a gallery view.
+    * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character.
     * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, or `#h` for HTML/interactive digital media.  If unspecified, defaults to `#i`.
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
         * When the file is stored on IPFS, the `ipfs://...` URI **SHOULD** be used. IPFS Gateway URI (such as `https://ipfs.io/ipfs/...`) **SHOULD NOT** be used.
     * **SHOULD NOT** use the following URI scheme: *http* (due to security concerns).
 * *Asset Metadata Hash* (`am`): the SHA-256 digest of the full resolution media file as a 32-byte string (as defined in [NIST FIPS 180-4](https://doi.org/10.6028/NIST.FIPS.180-4))
     * **OPTIONAL**
-* *Unit Name* (`un`): no restriction 
+* *Unit Name* (`un`): no restriction.
 * *Freeze Address* (`f`): 
     * **SHOULD** be empty
 * *Clawback Address* (`c`): 
@@ -132,10 +132,10 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
 
 An example of possible ASA parameters would be:
 
-* *Asset Unit*: `ARC69 theme song` for example
-* *Asset Name*: `69TS` for example
+* *Asset Unit*: `ARC69 theme song` for example.
+* *Asset Name*: `69TS` for example.
 * *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT#v`
-* *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file
+* *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file.
 * *Total Number of Units*: 1
 * *Number of Digits after the Decimal Point*: 0
 
