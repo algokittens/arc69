@@ -49,10 +49,9 @@ There are no requirements regarding the manager account of the ASA, or the reser
 ### JSON Metadata File Schema
 
 > The JSON Medata File schema follow the Ethereum Request for Comments 721 [ERC-721 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) with the following main differences:
-> * Support for mimetype fields for any file pointed by the URI field. (need to rephrase this)
 > * Adding the field `standard` to signal which standard is use.
 > * Adding the field `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
-> * Adding the field `mime_type` to signal mime type of the media included in `au`. **MUST** be included if the mime type != image. 
+> * Adding the field `mime_type` to signal the MIME type and subtype of the media included in `au`. **OPTIONAL**
 > * Adding the field `media_url` which is used to link the high resolution media file. **OPTIONAL** but the sha-256 digest of the file **MUST** match the Asset Metadata Hash (`am`).
 
 
@@ -99,10 +98,8 @@ However, contrary to the Asset URL, it does not need to link to the digital medi
 
 #### MIME Type
 
-Compared to ERC-1155, the JSON Metadata schema allows to indicate the MIME type of the files pointed by the `au` URI field.
-This is to allow clients to display appropriately the resource without having to first query it to find out the MIME type.
+In addition to including a MIME type in the `ua` field of the asset, the JSON Metadata schema allows indication of the MIME type and subtype.
 
-It is **REQUIRED** to specify the `mimetype` field if the file is **NOT** an image. 
 
 
 #### Examples
@@ -137,7 +134,7 @@ An example of possible ASA parameters would be:
 
 * *Asset Unit*: `ARC69 theme song` for example
 * *Asset Name*: `69TS` for example
-* *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT`
+* *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT#v`
 * *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file
 * *Total Number of Units*: 1
 * *Number of Digits after the Decimal Point*: 0
@@ -150,9 +147,10 @@ These conventions are heavily based on Ethereum Improvement Proposal [ERC-1155 M
 
 The main differences are highlighted below:
 
-* Asset Name and Asset Unit can be optionally specified in the ASA parameters. This is to allow wallets that are not aware of ARC-3 or that are not able to retrieve the JSON file to still display meaningful information.
+* Asset Name and Asset Unit are specified in the ASA parameters. This is to allow wallets that are not aware of ARC-3 or that are not able to retrieve the JSON file to still display meaningful information.
 * MIME type fields are added to help clients know how to display the files pointed by URI.
 * All asset metadata is stored onchain.
+* Metadata can be either mutable or immutable.
 
 
 Valid JSON Metadata files for ERC-1155 are valid JSON Metadata files for ARC-69.
