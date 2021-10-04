@@ -12,7 +12,7 @@ We introduce community conventions for the parameters of Algorand Standard Asset
 
 ## Abstract
 
-The goal of these conventions is to make it simpler for block explorers, wallets, exchanges, marketplaces, and more generally, client software to display the properties of a given ASA. This ARC differs from ARC3 by focusing on optimization for fetching of digital media, as well as the use of onchain metadata. This onchain metadata can be mutable if the manager address is included, or immutable if the manager address is removed.
+The goal of these conventions is to make it simpler for block explorers, wallets, exchanges, marketplaces, and more generally, client software to display the properties of a given ASA. This ARC differs from [ARC3](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0003.md) by focusing on optimization for fetching of digital media, as well as the use of onchain metadata. This onchain metadata can be mutable if the manager address is included, or immutable if the manager address is removed.
 
 
 ## Specification
