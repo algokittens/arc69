@@ -12,7 +12,7 @@ We introduce community conventions for the parameters of Algorand Standard Asset
 
 ## Abstract
 
-The goal of these conventions is to make it simpler for block explorers, wallets, exchanges, marketplaces, and more generally, client software to display the properties of a given ASA. This ARC differs from ARC3 by focusing on optimization for fetching of digital media, as well as the use of onchain metadata. This onchain metadata can be mutable if the manager address is retained, or immutable if the manager address is removed.
+The goal of these conventions is to make it simpler for block explorers, wallets, exchanges, marketplaces, and more generally, client software to display the properties of a given ASA. This ARC differs from ARC3 by focusing on optimization for fetching of digital media, as well as the use of onchain metadata. This onchain metadata can be mutable if the manager address is included, or immutable if the manager address is removed.
 
 
 ## Specification
@@ -29,7 +29,7 @@ The ASA parameters should follow the following conventions:
 * *Asset Name* (`an`): no restriction.
 * *Asset URL* (`au`): a URI pointing to digital media file. This URI:
     * **SHOULD** be persistent.
-    * **SHOULD** SHOULD link to a file small enough to fetch quickly in a gallery view.
+    * **SHOULD** link to a file small enough to fetch quickly in a gallery view.
     * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character.
     * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, or `#h` for HTML/interactive digital media.  If unspecified, defaults to `#i`.
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
@@ -129,7 +129,6 @@ An example of an ARC-3 JSON Metadata file for a song follows. The properties arr
 }
 ```
 
-
 An example of possible ASA parameters would be:
 
 * *Asset Unit*: `ARC69 theme song` for example.
@@ -138,8 +137,6 @@ An example of possible ASA parameters would be:
 * *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file.
 * *Total Number of Units*: 1
 * *Number of Digits after the Decimal Point*: 0
-
-
 
 ## Rationale
 
@@ -152,9 +149,7 @@ The main differences are highlighted below:
 * All asset metadata is stored onchain.
 * Metadata can be either mutable or immutable.
 
-
 Valid JSON Metadata files for ERC-1155 are valid JSON Metadata files for ARC-69.
-
 
 ## Copyright
 
