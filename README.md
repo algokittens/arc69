@@ -75,10 +75,6 @@ The JSON Metadata schema is as follows:
             "type": "string",
             "description": "A URI pointing to an external website presenting the asset."
         },
-        "append": {
-            "type": "boolean",
-            "description": "A flag signaling appending replacement of appending of metadata"
-        },
         "media_url": {
             "type": "string",
             "description": "A URI pointing the high resolution media file of the asset."
