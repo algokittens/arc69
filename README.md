@@ -37,7 +37,6 @@ The ASA parameters should follow the following conventions:
     * **SHOULD NOT** use the following URI scheme: *http* (due to security concerns).
 * *Asset Metadata Hash* (`am`): the SHA-256 digest of the full resolution media file as a 32-byte string (as defined in [NIST FIPS 180-4](https://doi.org/10.6028/NIST.FIPS.180-4))
     * **OPTIONAL**
-* *Unit Name* (`un`): no restriction.
 * *Freeze Address* (`f`): 
     * **SHOULD** be empty
 * *Clawback Address* (`c`): 
