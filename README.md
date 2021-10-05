@@ -131,8 +131,8 @@ An example of an ARC-69 JSON Metadata file for a song follows. The properties ar
 
 An example of possible ASA parameters would be:
 
-* *Asset Unit*: `ARC69 theme song` for example.
-* *Asset Name*: `69TS` for example.
+* *Asset Name*: `ARC69 theme song` for example.
+* *Unit Name*: `69TS` for example.
 * *Asset URL*: `ipfs://QmWS1VAdMD353A6SDk9wNyvkT14kyCiZrNDYAad4w1tKqT#v`
 * *Metadata Hash*: the 32 bytes of the SHA-256 digest of the high resolution media file.
 * *Total Number of Units*: 1
