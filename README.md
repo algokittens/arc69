@@ -12,7 +12,7 @@ We introduce community conventions for the parameters of Algorand Standard Asset
 
 ## Abstract
 
-The goal of these conventions is to make it simpler to display the properties of a given ASA. This ARC differs from [ARC3](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0003.md) by focusing on optimization for fetching of digital media, as well as the use of onchain metadata. This onchain metadata can be mutable if the manager address is used, or immutable if the manager address is removed. Furthermore, since asset configuration transactions are used to store the metadata, this ARC can be applied to existing ASAs.
+The goal of these conventions is to make it simpler to display the properties of a given ASA. This ARC differs from [ARC3](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0003.md) by focusing on optimization for fetching of digital media, as well as the use of onchain metadata. Furthermore, since asset configuration transactions are used to store the metadata, this ARC can be applied to existing ASAs. While mutability helps with backwards compatibility, and use cases like leveling up an RPG character NFT, some use cases call for immutable metadata. In these cases, the ASA manager MAY remove the manager address, effectively making the ARC-69 metadata immutable with a final `acfg` transaction for the ASA.
  
 
 ## Specification
