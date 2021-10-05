@@ -40,9 +40,9 @@ The ASA parameters should follow the following conventions:
 * *Asset Metadata Hash* (`am`): the SHA-256 digest of the full resolution media file as a 32-byte string (as defined in [NIST FIPS 180-4](https://doi.org/10.6028/NIST.FIPS.180-4))
     * **OPTIONAL**
 * *Freeze Address* (`f`): 
-    * **SHOULD** be empty
+    * **SHOULD** be empty, unless needed for royalties or other use cases
 * *Clawback Address* (`c`): 
-    * **SHOULD** be empty
+    * **SHOULD** be empty, unless needed for royalties or other use cases
 
 
 There are no requirements regarding the manager account of the ASA, or the reserve account. However, if immutability is required the manager address **MUST** be removed.
