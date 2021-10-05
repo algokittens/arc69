@@ -106,7 +106,7 @@ In addition to including a MIME type in the `au` field of the asset, the JSON Me
 
 ##### Basic Example
 
-An example of an ARC-3 JSON Metadata file for a song follows. The properties array proposes some **SUGGESTED** formatting for token-specific display properties and metadata.
+An example of an ARC-69 JSON Metadata file for a song follows. The properties array proposes some **SUGGESTED** formatting for token-specific display properties and metadata.
 
 ```json
 
