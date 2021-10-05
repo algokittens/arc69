@@ -154,4 +154,3 @@ Valid JSON Metadata for ERC-1155 is valid JSON Metadata for ARC-69.
 ## Copyright
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
-diff --git a/arc-69.md b/arc-69.md
