@@ -98,7 +98,7 @@ However, contrary to the Asset URL, it does not need to link to the digital medi
 
 #### MIME Type
 
-In addition to including a MIME type in the `ua` field of the asset, the JSON Metadata schema allows indication of the MIME type and subtype.
+In addition to including a MIME type in the `au` field of the asset, the JSON Metadata schema allows indication of the MIME type and subtype.
 
 
 
