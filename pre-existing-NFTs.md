@@ -28,7 +28,7 @@
 
 ## 2) Modify asset in AlgoDesk
 
-![](https://lh5.googleusercontent.com/yOCcsbW6LkRLVaOC_Me5k53T_n8JF6HFTSBXNSf2Q5G1yiDmahvHhenA2ualTTLvckOHEiKC2cbqXReFOj82XVBQ2Sc14qGmTguRWCfTQ6-h93cMcMdFvKLxKkZEldoqibN44gWT=s0)
+![](./images/algodesk1.png)
 
 ![](https://lh5.googleusercontent.com/iH8_zji3xCyKVUqFwxiLRWZ-lh3gxQ-lU61sa0Zm0Z0B2yUzs7EoH0wWuCy2M58YGib8VplJdwey_WIcAjjyjN1NlLqZ4CRJUjvUA4C2uunQj42_g0RvGD8cXeF6jrUkEpoJknX2=s0)
 
