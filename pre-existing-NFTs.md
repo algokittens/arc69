@@ -105,7 +105,7 @@ Once you have pasted the note (JSON, compliant with ARC69), you can click Modify
 ![Add the JSON note](./images/myalgoAssetMngr3.png)
 
 
-## 5) Verify on Rand Gallery and NFT Explorer
+# Verify on Rand Gallery and NFT Explorer
 
 -   [https://www.randgallery.com/algo-collection/?address=308075440](https://www.randgallery.com/algo-collection/?address=308075440)
     
