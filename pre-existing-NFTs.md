@@ -8,7 +8,7 @@
 Go to https://www.nftexplorer.app/ and navigate to the desired asset.
 Alternatively, you can type the URL directly, such as https://www.nftexplorer.app/asset/284074520 , where the last part is the ASA ID.
 
-## 2) Go to nftexplorer.app
+## 2) Add/Edit ARC69
 
 Once you are looking at the asset view, you can either "add" ARC69 or you can "edit" ARC69 (if already present).
 
