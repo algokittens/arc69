@@ -12,6 +12,8 @@ Alternatively, you can type the URL directly, such as https://www.nftexplorer.ap
 
 Once you are looking at the asset view, you can either "add" ARC69 or you can "edit" ARC69 (if already present).
 
+NOTE: please enable popup windows from nftexplorer.app website or this process will fail.
+
 ### a) Add ARC69
 
 ![](./images/NFTExpl_add_arc69.png)
