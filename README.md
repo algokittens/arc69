@@ -139,7 +139,7 @@ An example of possible ASA parameters would be:
 
 ##### Rendering
 
-Clients SHOULD render an ASA's latest ARC69 metadata. Clients MAY render an ASA's previous ARC69 metadata for changelogs or other historical features
+Clients SHOULD render an ASA's latest ARC69 metadata. Clients MAY render an ASA's previous ARC69 metadata for changelogs or other historical features.
 
 ##### Updating ARC69 metadata
 
