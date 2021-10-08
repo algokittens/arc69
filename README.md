@@ -135,6 +135,20 @@ An example of possible ASA parameters would be:
 * *Total Number of Units*: 1
 * *Number of Digits after the Decimal Point*: 0
 
+#### Mutability
+
+##### Rendering
+
+Clients SHOULD render an ASA's latest ARC69 metadata. Clients MAY render an ASA's previous ARC69 metadata for changelogs or other historical features
+
+##### Updating ARC69 metadata
+
+Managers MAY update an ASA's ARC69 metadata. To do so, they MUST send a new `acfg` transaction with the entire metadata represented as JSON in the transaction's `note` field.
+
+##### Making ARC69 metadata immutable
+
+Managers MAY make an ASA's ARC69 immutable. To do so, they MUST remove the ASA's manager address with an `acfg` transaction.
+
 ## Rationale
 
 These conventions are heavily based on Ethereum Improvement Proposal [ERC-1155 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) to facilitate interoperobility. 
