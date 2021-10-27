@@ -1,7 +1,7 @@
 ---
 arc: 69
 title: Community Algorand Standard Asset Parameters Conventions for Digital Media Tokens
-status: First draft
+status: Living Standard
 ---
 
 # Community Algorand Standard Asset Parameters Conventions for Digital Media Tokens
