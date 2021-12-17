@@ -91,7 +91,7 @@ However, contrary to the Asset URL, the `external_url` does not need to link to 
 
 #### MIME Type
 
-In addition to including a MIME type in the `au` field of the asset, the JSON Metadata schema allows indication of the MIME type.
+In addition to including a data type in the ASA's URL (`au` field) with a URI fragment (ex: `#v` for video), the JSON Metadata schema allows indication of the MIME type (ex: `video/mp4`).
 
 
 
