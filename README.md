@@ -49,15 +49,6 @@ There are no requirements regarding the manager account of the ASA, or the reser
 
 ### JSON Metadata File Schema
 
-> The JSON Medata File schema follow the Ethereum Request for Comments 721 [ERC-721 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) with the following main differences:
-> * Adding the field `standard` to signal which standard is used.
-> * Adding the field `external_url` used by [OpenSea metadata format](https://docs.opensea.io/docs/metadata-standards).
-> * Adding the field `mime_type` to signal the MIME type and subtype of the media included in `au`. **OPTIONAL**
-> * Adding the field `media_url` which is used to link the high resolution media file. **OPTIONAL** but the sha-256 digest of the file **MUST** match the Asset Metadata Hash (`am`).
-
-
-The JSON Metadata schema is as follows:
-
 ```json
 {
     "title": "Token Metadata",
@@ -65,37 +56,42 @@ The JSON Metadata schema is as follows:
     "properties": {
         "standard": {
             "type": "string",
-            "description": "Describes the standard used, in this case arc69"
+            "value": "arc69",
+            "description": "(Required) Describes the standard used."
         },
         "description": {
             "type": "string",
-            "description": "Describes the asset to which this token represents"
+            "description": "Describes the asset to which this token represents."
         },
         "external_url": {
             "type": "string",
-            "description": "A URI pointing to an external website presenting the asset."
+            "description": "A URI pointing to an external website. Borrowed from Open Sea's metadata format (https://docs.opensea.io/docs/metadata-standards)."
         },
         "media_url": {
             "type": "string",
-            "description": "A URI pointing the high resolution media file of the asset."
+            "description": "A URI pointing to a high resolution version of the asset's media."
         },
         "attributes": {
             "type": "array",
             "description": "Attributes following Open Sea's attributes format (https://docs.opensea.io/docs/metadata-standards#attributes)."
+        },
+        "mime_type": {
+            "type": "string",
+            "description": "Describes the MIME type of the ASA's URL (`au` field)."
         }
     }
 }
 ```
-The `standard` field is **REQUIRED**, all the other fields are **OPTIONAL**. But if provided, they **MUST** match the description in the JSON schema.
+The `standard` field is **REQUIRED** and **MUST** equal "arc69". All other fields are **OPTIONAL**. If provided, the other fields **MUST** match the description in the JSON schema.
 
-The URI field (`external_url`) is defined similarly as the Asset URL parameter `au`.
-However, contrary to the Asset URL, it does not need to link to the digital media file.
+The URI field (`external_url`) is defined similarly to the Asset URL parameter `au`.
+However, contrary to the Asset URL, the `external_url` does not need to link to the digital media file.
 
 
 
 #### MIME Type
 
-In addition to including a MIME type in the `au` field of the asset, the JSON Metadata schema allows indication of the MIME type and subtype.
+In addition to including a MIME type in the `au` field of the asset, the JSON Metadata schema allows indication of the MIME type.
 
 
 
@@ -106,23 +102,19 @@ In addition to including a MIME type in the `au` field of the asset, the JSON Me
 An example of an ARC-69 JSON Metadata file for a song follows. The properties array proposes some **SUGGESTED** formatting for token-specific display properties and metadata.
 
 ```json
-
-{   
-    "standard": "arc69",
-    "description": "arc69 theme song",
-    "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "mime_type":"video/mp4",
-    "attributes": [
-        {"trait_type":"Bass",
-        "value":"Groovy"
-        },
-        {"trait_type":"Vibes",
-        "value":"Funky"
-        },
-        {"trait_type":"Overall",
-        "value":"Good stuff"
-        }
-    ]
+{
+  "standard": "arc69",
+  "description": "arc69 theme song",
+  "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "mime_type": "video/mp4",
+  "attributes": [
+    {
+      "trait_type": "Bass",
+      "value": "Groovy"
+    },
+    { "trait_type": "Vibes", "value": "Funky" },
+    { "trait_type": "Overall", "value": "Good stuff" }
+  ]
 }
 ```
 
@@ -151,16 +143,14 @@ Managers MAY make an ASA's ARC69 immutable. To do so, they MUST remove the ASA's
 
 ## Rationale
 
-These conventions are heavily based on Ethereum Improvement Proposal [ERC-1155 Metadata URI JSON Schema](https://eips.ethereum.org/EIPS/eip-1155) to facilitate interoperobility. 
+These conventions take inspiration from [Open Sea's metadata standards](https://docs.opensea.io/docs/metadata-standards) to facilitate interoperobility. 
 
 The main differences are highlighted below:
 
 * Asset Name, Unit Name, and URL are specified in the ASA parameters. This allows applications to efficienty display meaningful information, even if they aren't aware of ARC-69 metadata.
-* MIME type fields are added to help clients know how to display the files pointed by URI.
+* MIME types help clients more effectively fetch and render media.
 * All asset metadata is stored onchain.
 * Metadata can be either mutable or immutable.
-
-Valid JSON Metadata for ERC-1155 is valid JSON Metadata for ARC-69.
 
 ## Copyright
 
