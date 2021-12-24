@@ -151,9 +151,9 @@ The initial version of ARC69 followed the [Open Sea attributes format](https://d
 "description": "Attributes following Open Sea's attributes format (https://docs.opensea.io/docs/metadata-standards#attributes)."
 }
 ```
-This format is now deprecated. New NFTs should use the simple `properties` format, since it significantly reduces the metadata size.
+This format is now deprecated. New NFTs **SHOULD** use the simple `properties` format, since it significantly reduces the metadata size.
 
-Marketplaces should support both the `properties` object and the `attributes` array to be fully compliant with the ARC69 standard.
+To be fully compliant with the ARC69 standard, both the `properties` object and the `attributes` array **SHOULD** be supported. 
 
 ## Rationale
 
