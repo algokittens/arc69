@@ -140,7 +140,7 @@ Managers MAY make an ASA's ARC69 immutable. To do so, they MUST remove the ASA's
 
 ##### ARC69 attribute deprecation
 
-The initial version of ARC69 followed the [Open Sea attributes format]("https://docs.opensea.io/docs/metadata-standards#attributes"). As illustrated below:
+The initial version of ARC69 followed the [Open Sea attributes format](https://docs.opensea.io/docs/metadata-standards#attributes). As illustrated below:
 ```
 "attributes": {
 "type": "array",
@@ -151,7 +151,7 @@ This format is now deprecated and the `properties` format should instead be used
 
 ## Rationale
 
-These conventions take inspiration from [Open Sea's metadata standards](https://docs.opensea.io/docs/metadata-standards) and [EIP-1155]("https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema") to facilitate interoperobility. 
+These conventions take inspiration from [Open Sea's metadata standards](https://docs.opensea.io/docs/metadata-standards) and [EIP-1155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema) to facilitate interoperobility. 
 
 The main differences are highlighted below:
 
