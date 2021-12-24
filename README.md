@@ -71,9 +71,9 @@ There are no requirements regarding the manager account of the ASA, or the reser
             "type": "string",
             "description": "A URI pointing to a high resolution version of the asset's media."
         },
-        "attributes": {
-            "type": "array",
-            "description": "Attributes following Open Sea's attributes format (https://docs.opensea.io/docs/metadata-standards#attributes)."
+        "properties": {
+            "type": "object", 
+            "description": "Properties following the [EIP-1155]("https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema") "simple properties" format."
         },
         "mime_type": {
             "type": "string",
@@ -107,14 +107,11 @@ An example of an ARC-69 JSON Metadata file for a song follows. The properties ar
   "description": "arc69 theme song",
   "external_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   "mime_type": "video/mp4",
-  "attributes": [
-    {
-      "trait_type": "Bass",
-      "value": "Groovy"
-    },
-    { "trait_type": "Vibes", "value": "Funky" },
-    { "trait_type": "Overall", "value": "Good stuff" }
-  ]
+  "properties": {
+    "Bass":"Groovy", 
+    "Vibes":"Funky", 
+    "Overall":"Good stuff"
+    }
 }
 ```
 
@@ -141,9 +138,20 @@ Managers MAY update an ASA's ARC69 metadata. To do so, they MUST send a new `acf
 
 Managers MAY make an ASA's ARC69 immutable. To do so, they MUST remove the ASA's manager address with an `acfg` transaction.
 
+##### ARC69 attribute deprecation
+
+The initial version of ARC69 followed the [Open Sea attributes format]("https://docs.opensea.io/docs/metadata-standards#attributes"). As illustrated below:
+```
+"attributes": {
+"type": "array",
+"description": "Attributes following Open Sea's attributes format (https://docs.opensea.io/docs/metadata-standards#attributes)."
+}
+```
+This format is now deprecated and the `properties` format should instead be used, as the latter significantly reduces the metadata size.
+
 ## Rationale
 
-These conventions take inspiration from [Open Sea's metadata standards](https://docs.opensea.io/docs/metadata-standards) to facilitate interoperobility. 
+These conventions take inspiration from [Open Sea's metadata standards](https://docs.opensea.io/docs/metadata-standards) and [EIP-1155]("https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema") to facilitate interoperobility. 
 
 The main differences are highlighted below:
 
