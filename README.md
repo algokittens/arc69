@@ -73,7 +73,7 @@ There are no requirements regarding the manager account of the ASA, or the reser
         },
         "properties": {
             "type": "object", 
-            "description": "Properties following the EIP-1155 "simple properties" format." (https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema) 
+            "description": "Properties following the EIP-1155 "simple properties" format. (https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema)" 
         },
         "mime_type": {
             "type": "string",
