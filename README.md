@@ -73,11 +73,15 @@ There are no requirements regarding the manager account of the ASA, or the reser
         },
         "properties": {
             "type": "object", 
-            "description": "Properties following the EIP-1155 'simple properties' format. (https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema)" 
+            "description": "Properties following the EIP-1155 'simple properties' format. (https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema)"
         },
         "mime_type": {
             "type": "string",
             "description": "Describes the MIME type of the ASA's URL (`au` field)."
+        },
+        "attributes": {
+            "type": "array",
+            "description": "(Deprecated. New NFTs should define attributes with the simple `properties` object. Marketplaces should support both the `properties` object and the `attributes` array). The `attributes` array follows Open Sea's format: https://docs.opensea.io/docs/metadata-standards#attributes"
         }
     }
 }
@@ -111,7 +115,7 @@ An example of an ARC-69 JSON Metadata file for a song follows. The properties ar
     "Bass":"Groovy", 
     "Vibes":"Funky", 
     "Overall":"Good stuff"
-    }
+  }
 }
 ```
 
@@ -147,7 +151,9 @@ The initial version of ARC69 followed the [Open Sea attributes format](https://d
 "description": "Attributes following Open Sea's attributes format (https://docs.opensea.io/docs/metadata-standards#attributes)."
 }
 ```
-This format is now deprecated and the `properties` format should instead be used, as the latter significantly reduces the metadata size.
+This format is now deprecated. New NFTs **SHOULD** use the simple `properties` format, since it significantly reduces the metadata size.
+
+To be fully compliant with the ARC69 standard, both the `properties` object and the `attributes` array **SHOULD** be supported. 
 
 ## Rationale
 
