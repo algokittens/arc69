@@ -33,7 +33,7 @@ The ASA parameters should follow the following conventions:
     * **SHOULD** be persistent.
     * **SHOULD** link to a file small enough to fetch quickly in a gallery view.
     * **MUST** follow [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt) and **MUST NOT** contain any whitespace character.
-    * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, `#a` for audio, `#h` for HTML/interactive digital media, or a MIME type like `#application/pdf`.  If unspecified, assume Image.
+    * **SHOULD** specify media type with `#` fragment identifier at end of URL. This format **MUST** follow: `#i` for images, `#v` for videos, `#a` for audio, `#h` for HTML/interactive digital media, or a [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) like `#application/pdf`.  If unspecified, assume Image.
     * **SHOULD** use one of the following URI schemes (for compatibility and security): *https* and *ipfs*:
         * When the file is stored on IPFS, the `ipfs://...` URI **SHOULD** be used. IPFS Gateway URI (such as `https://ipfs.io/ipfs/...`) **SHOULD NOT** be used.
     * **SHOULD NOT** use the following URI scheme: *http* (due to security concerns).
