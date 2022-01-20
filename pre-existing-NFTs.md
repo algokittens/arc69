@@ -41,24 +41,16 @@ Note that you must review all proposed changes both in nftexplorer app, but more
 
 (Example ARC69 JSON)
 
-```
+```json
 {
   "standard": "arc69",
   "description": "STUPIDHORSE 069",
   "external_url": "thurstober.com",
-  "attributes": [{
-      "trait_type": "Background Color",
-      "value": "Blue Sherbet"
-    },
-    {
-      "trait_type": "Coat Color",
-      "value": "Blue"
-    },
-    {
-      "trait_type": "Hair Style",
-      "value": "Lil Hat"
-    }
-  ]
+  "properties": {
+    "Background Color":"Blue Sherbet", 
+    "Coat Color":"Blue", 
+    "Hair Style":"Lil Hat"
+  }
 }
 ```
 
