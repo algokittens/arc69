@@ -1,3 +1,8 @@
+
+# NOTE: THIS REPOSITORY IS NO LONGER MAINTAINED, FOR THE OFFICIAL SPEC SEE THE ALGORAND FOUNDATION GITHUB:
+
+https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0069.md
+
 ---
 arc: 69
 title: Community Algorand Standard Asset Parameters Conventions for Digital Media Tokens
